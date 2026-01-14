@@ -9,8 +9,9 @@ import HowItWorks from "./pages/HowItWorks";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
 import NotFound from "./pages/NotFound";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +27,8 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
