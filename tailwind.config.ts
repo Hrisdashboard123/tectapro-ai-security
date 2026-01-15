@@ -66,10 +66,6 @@ export default {
           light: "#E5C93D",
           dark: "#9A8514",
         },
-        lime: {
-          DEFAULT: "hsl(var(--lime))",
-          foreground: "hsl(var(--lime-foreground))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -62,10 +62,6 @@
     --highlight-bg: 49 80% 45%;
     --gradient-dark: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 4%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(222 47% 12% / 0.8) 0%, hsl(222 47% 8% / 0.6) 100%);
-    
-    /* Lime accent for contact */
-    --lime: 78 85% 55%;
-    --lime-foreground: 0 0% 0%;
   }
 
   .dark {
