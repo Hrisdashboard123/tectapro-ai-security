@@ -33,7 +33,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="xl" asChild>
                 <Link to="/contact">
                   Start My Security Audit
