@@ -1,16 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X, Shield, Home, Layers, Settings2, DollarSign, Users, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Features", path: "/features" },
-  { name: "How It Works", path: "/how-it-works" },
-  { name: "Pricing", path: "/pricing" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  { name: "Home", path: "/", icon: Home },
+  { name: "Features", path: "/features", icon: Layers },
+  { name: "How It Works", path: "/how-it-works", icon: Settings2 },
+  { name: "Pricing", path: "/pricing", icon: DollarSign },
+  { name: "About", path: "/about", icon: Users },
+  { name: "Contact", path: "/contact", icon: Mail },
 ];
 
 const Header = () => {
@@ -53,12 +53,13 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "relative text-sm font-medium transition-colors duration-300",
+                  "relative flex items-center gap-1.5 text-sm font-medium transition-colors duration-300",
                   location.pathname === link.path
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
+                <link.icon className="w-4 h-4" />
                 {link.name}
                 {location.pathname === link.path && (
                   <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
@@ -98,12 +99,13 @@ const Header = () => {
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  "block py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-300",
+                  "flex items-center gap-2 py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-300",
                   location.pathname === link.path
                     ? "bg-primary/10 text-primary"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
+                <link.icon className="w-4 h-4" />
                 {link.name}
               </Link>
             ))}
