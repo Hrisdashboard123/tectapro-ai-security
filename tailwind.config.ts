@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Noticia Text"', 'Georgia', 'serif'],
+        heading: ['"Libre Baskerville"', 'Georgia', 'serif'],
         body: ['"Noticia Text"', 'Georgia', 'serif'],
       },
       colors: {
