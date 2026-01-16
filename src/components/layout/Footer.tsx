@@ -1,5 +1,49 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Phone, Mail, MapPin, Linkedin, Twitter, Github, Youtube } from "lucide-react";
+import { Shield, Phone, Mail, MapPin, Linkedin, Twitter, Github, Youtube, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
+
+const NewsletterForm = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) {
+      toast.error("Please enter your email address");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    setIsSubmitting(true);
+    // Simulate subscription
+    setTimeout(() => {
+      toast.success("Thank you for subscribing!");
+      setEmail("");
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+      <Input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="min-w-[250px] bg-background/50 border-border/50 focus:border-primary"
+      />
+      <Button type="submit" variant="default" disabled={isSubmitting} className="gap-2">
+        {isSubmitting ? "Subscribing..." : "Subscribe"}
+        <Send className="w-4 h-4" />
+      </Button>
+    </form>
+  );
+};
 
 const Footer = () => {
   const quickLinks = [
@@ -96,6 +140,19 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="glass-card p-6 mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h4 className="text-foreground font-semibold text-lg mb-2">Subscribe to Our Newsletter</h4>
+              <p className="text-muted-foreground text-sm">
+                Get the latest security insights, tips, and updates delivered to your inbox.
+              </p>
+            </div>
+            <NewsletterForm />
           </div>
         </div>
 
